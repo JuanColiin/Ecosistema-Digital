@@ -1,0 +1,10 @@
+<div class="detalle-container" *ngIf="emprendimiento">
+  <img [src]="emprendimiento.foto" alt="{{ emprendimiento.nombre }}" class="detalle-image" />
+  <div class="detalle-content">
+    <h2 class="detalle-title">{{ emprendimiento.nombre }}</h2>
+    <p class="detalle-category">{{ emprendimiento.categoria }}</p>
+    <p class="detalle-description">{{ emprendimiento.descripcion }}</p>
+    <button class="btn-volver" (click)="volver()">Volver</button>
+  </div>
+
+

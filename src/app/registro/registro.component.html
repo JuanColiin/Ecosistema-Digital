@@ -1,0 +1,25 @@
+<div class="form-container">
+  <h2>Crear cuenta</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    </div>
+    <div class="form-group">
+      <label for="role">Rol:</label>
+      <select id="role" name="role" [(ngModel)]="role">
+        <option value="emprendedor">Emprendedor</option>
+        <option value="empresario">Empresario</option>
+      </select>
+    </div>
+    <button type="submit" class="submit-button">Crear cuenta</button>
+  </form>
+</div>

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "categoria": "Tecnología",
+    "nombre": "Tech Innovators",
+    "descripcion": "Un grupo de emprendedores enfocados en desarrollar soluciones innovadoras para el mercado tecnológico.",
+    "foto": "https://via.placeholder.com/150?text=Tech+Innovators"
+  },
+  {
+    "id": "2",
+    "categoria": "Salud",
+    "nombre": "SaludPlus",
+    "descripcion": "Plataforma digital que conecta profesionales de la salud con pacientes para consultas online.",
+    "foto": "https://via.placeholder.com/150?text=SaludPlus"
+  },
+  {
+    "id": "3",
+    "categoria": "Educación",
+    "nombre": "LearnOnline",
+    "descripcion": "Curso en línea para enseñar habilidades digitales y tecnología a estudiantes de todas las edades.",
+    "foto": "https://via.placeholder.com/150?text=LearnOnline"
+  },
+  {
+    "id": "4",
+    "categoria": "Energía Renovable",
+    "nombre": "EcoPower",
+    "descripcion": "Empresa dedicada a la instalación de paneles solares y soluciones energéticas ecológicas.",
+    "foto": "https://via.placeholder.com/150?text=EcoPower"
+  },
+  {
+    "id": "5",
+    "categoria": "Finanzas",
+    "nombre": "FinTech Solutions",
+    "descripcion": "Plataforma de servicios financieros que facilita el acceso a crédito y asesoría financiera.",
+    "foto": "https://via.placeholder.com/150?text=FinTech+Solutions"
+  }
+]
