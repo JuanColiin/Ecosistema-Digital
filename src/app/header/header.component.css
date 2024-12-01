@@ -1,33 +1,64 @@
+/* Estilo general para el header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #ddd;
+  background-color: #22223B; /* Gris oscuro para el fondo */
+  color: #FFFCF2; /* Blanco cremoso para el texto */
+  border-bottom: 3px solid #666A83; /* Naranja para el borde inferior */
+}
+
+/* Estilo para el logo y la parte izquierda del header */
+.left {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  margin-right: 20px;
 }
 
+/* Logo imagen */
 .logo img {
   height: 40px;
   margin-right: 10px;
 }
 
+/* Estilo para el link de "Publicar" */
+.link-publicar {
+  font-size: 1rem;
+  color: #FB5012;  /* Naranja para resaltar el link */
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.link-publicar:hover {
+  text-decoration: underline;
+  color: #FFFCF2;  /* Blanco cremoso en hover para resaltar */
+}
+
+/* Estilo para los botones de acción */
 .actions button {
   margin-left: 10px;
   padding: 8px 12px;
   font-size: 1rem;
   border: none;
-  background-color: #007bff;
+  background-color: #FB5012; /* Naranja de fondo */
   color: white;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .actions button:hover {
-  background-color: #0056b3;
+  background-color: #666A83;  /* Gris claro en hover */
+}
+
+/* Ajustes adicionales para mejorar la accesibilidad */
+button:focus, .link-publicar:focus {
+  outline: 2px solid #FB5012; /* Resaltado de foco con el color naranja */
 }

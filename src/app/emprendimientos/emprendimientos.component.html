@@ -1,3 +1,16 @@
+
+<div class="banner">
+  <h1>EmprendeCo</h1>
+  <p>Conecta con empresarios, impulsa tus ideas y transforma tus sueños en realidad.</p>
+  <button routerLink="/publicacion">¡Publica tu proyecto ahora!</button>
+</div>
+
+<div class="content">
+  <!-- Aquí va el contenido principal del componente Emprendimientos -->
+</div>
+
+
+
 <div class="emprendimientos-container">
     <div *ngFor="let emprendimiento of emprendimientosList" class="card">
       <img [src]="emprendimiento.image" alt="{{ emprendimiento.title }}" class="card-image" />

@@ -1,42 +1,90 @@
-.form-container {
+/* Contenedor principal del formulario de login */
+.login-container {
+  width: 100%;
   max-width: 400px;
-  margin: 2rem auto;
-  padding: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #FFFCF2; /* Blanco cremoso */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: 30px;
 }
+
+/* Título */
 h2 {
   text-align: center;
-}
-.form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 30px;
+  color: #22223B; /* Gris oscuro */
+  font-size: 1.75rem;
+  font-weight: bold;
 }
 
+/* Contenedor de cada campo de formulario */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Etiquetas de los campos */
 label {
   display: block;
-  margin-bottom: 0.5rem;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #22223B; /* Gris oscuro */
 }
 
+/* Estilo de los inputs */
 input {
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 0.25rem;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #666A83; /* Gris claro */
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #ffffff; /* Blanco para los inputs */
+  color: #333; /* Gris oscuro para el texto */
 }
 
-.submit-button {
+/* Estilo al hacer focus en los inputs */
+input:focus {
+  border-color: #FB5012; /* Naranja para el foco */
+  outline: none;
+  box-shadow: 0 0 5px rgba(251, 80, 18, 0.3); /* Sombra naranja */
+}
+
+/* Estilo del botón */
+button {
   width: 100%;
-  padding: 0.75rem;
-  background-color: #007bff;
+  padding: 10px;
+  background-color: #FB5012; /* Naranja para el fondo */
   color: white;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.submit-button:hover {
-  background-color: #0056b3;
+/* Efecto hover en el botón */
+button:hover {
+  background-color: #22223B; /* Gris oscuro para el hover */
 }
 
+/* Estilo cuando el botón está deshabilitado */
+button:disabled {
+  background-color: #ea9b70;
+  cursor: not-allowed;
+}
+
+/* Estilo de los mensajes de error */
+.error-message {
+  color: #f44336; /* Rojo para los mensajes de error */
+  font-size: 12px;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+  .login-container {
+    width: 90%;
+    padding: 15px;
+  }
+}

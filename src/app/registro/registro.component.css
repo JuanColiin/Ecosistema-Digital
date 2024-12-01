@@ -1,41 +1,95 @@
-.form-container {
-  max-width: 400px;
-  margin: 2rem auto;
-  padding: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* Contenedor principal del formulario */
+.registro-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #FFFCF2; /* Blanco cremoso para el fondo */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: 30px;
 }
+
+/* Título */
 h2 {
   text-align: center;
+  margin-bottom: 40px;
+  color: #22223B; /* Gris oscuro para el título */
+  font-size: 2rem;
+  font-weight: bold;
 }
+
+/* Contenedor de los campos del formulario */
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 15px;
 }
 
+/* Etiquetas */
 label {
+  font-weight: bold;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 5px;
+  color: #22223B; /* Gris oscuro para las etiquetas */
 }
 
+/* Estilo de los inputs y selects */
 input, select {
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 0.25rem;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #666A83; /* Gris claro para el borde */
+  background-color: #ffffff; /* Blanco para los inputs */
+  color: #333; /* Gris oscuro para el texto */
 }
 
-.submit-button {
+input:focus, select:focus {
+  outline: none;
+  border-color: #FB5012; /* Naranja para el foco */
+  box-shadow: 0 0 5px rgba(251, 80, 18, 0.3); /* Sombra naranja para foco */
+}
+
+/* Mensajes de error */
+.error {
+  color: #f44336; /* Rojo para los errores */
+  font-size: 12px;
+}
+
+/* Estilo del botón */
+button {
+  margin-top: 15px;
   width: 100%;
-  padding: 0.75rem;
-  background-color: #007bff;
+  padding: 14px;
+  background-color: #FB5012; /* Naranja para el fondo */
   color: white;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 16px;
   transition: background-color 0.3s ease;
 }
 
-.submit-button:hover {
-  background-color: #0056b3;
+button:hover {
+  background-color: #22223B; /* Gris oscuro para el hover */
+}
+
+button:disabled {
+  background-color: #ea9b70;
+  cursor: not-allowed;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+  .registro-container {
+    padding: 15px;
+    margin: 20px;
+  }
+
+  input, select {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
 }

@@ -52,6 +52,8 @@ export class EmprendimientoDetalleComponent implements OnInit {
     });
   }
 
+  
+
 
 
   volver(): void {

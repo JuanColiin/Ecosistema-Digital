@@ -1,25 +1,41 @@
-<div class="form-container">
+<div class="registro-container">
   <h2>Crear cuenta</h2>
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Nombre:</label>
-      <input type="text" id="name" name="name" [(ngModel)]="name" required>
+<form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nombre">Nombre</label>
+    <input id="nombre" formControlName="nombre" type="text" />
+    <div *ngIf="f['nombre'].invalid && f['nombre'].touched">
+      <small *ngIf="f['nombre'].errors?.['required']">El nombre es requerido.</small>
+      <small *ngIf="f['nombre'].errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</small>
     </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" [(ngModel)]="email" required>
+  </div>
+
+  <div>
+    <label for="email">Correo electrónico</label>
+    <input id="email" formControlName="email" type="email" />
+    <div *ngIf="f['email'].invalid && f['email'].touched">
+      <small *ngIf="f['email'].errors?.['required']">El correo es requerido.</small>
+      <small *ngIf="f['email'].errors?.['email']">El correo debe ser válido.</small>
     </div>
-    <div class="form-group">
-      <label for="password">Contraseña:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+  </div>
+
+  <div>
+    <label for="password">Contraseña</label>
+    <input id="password" formControlName="password" type="password" />
+    <div *ngIf="f['password'].invalid && f['password'].touched">
+      <small *ngIf="f['password'].errors?.['required']">La contraseña es requerida.</small>
+      <small *ngIf="f['password'].errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
     </div>
-    <div class="form-group">
-      <label for="role">Rol:</label>
-      <select id="role" name="role" [(ngModel)]="role">
-        <option value="emprendedor">Emprendedor</option>
-        <option value="empresario">Empresario</option>
-      </select>
-    </div>
-    <button type="submit" class="submit-button">Crear cuenta</button>
-  </form>
+  </div>
+
+  <div>
+    <label for="role">Rol</label>
+    <select id="role" formControlName="role">
+      <option value="PUSHING">Emprendedor</option>
+      <option value="BUSINESSMAN">Empresario</option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="registroForm.invalid">Crear cuenta</button>
+</form>
 </div>

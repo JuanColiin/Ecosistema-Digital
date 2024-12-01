@@ -1,0 +1,62 @@
+/* Contenedor del formulario */
+.publicacion-form-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #FFFCF2; /* Blanco cremoso para el fondo */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Agregar una ligera sombra */
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #22223B; /* Gris oscuro para el título */
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Contenedor del campo de formulario */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Estilo para los inputs */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #666A83; /* Gris claro para el borde */
+  background-color: #ffffff; /* Blanco para los inputs */
+  color: #333; /* Gris oscuro para el texto */
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #FB5012; /* Naranja al enfocar el input */
+}
+
+/* Estilo para el botón */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #FB5012; /* Naranja para el fondo del botón */
+  border: none;
+  color: #FFFCF2; /* Blanco cremoso para el texto */
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #22223B; /* Gris oscuro para el hover del botón */
+}
+
+button:disabled {
+  background-color: #ea9b70;
+  cursor: not-allowed;
+}
