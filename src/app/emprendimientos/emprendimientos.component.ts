@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import emprendimientosData from '../../emprendimientos.json';
+import { IProject } from '../models/project.model';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-emprendimientos',
@@ -7,20 +8,15 @@ import emprendimientosData from '../../emprendimientos.json';
   styleUrls: ['./emprendimientos.component.css']
 })
 export class EmprendimientosComponent implements OnInit {
-  emprendimientos: any[] = [];
-  emprendimientoSeleccionado: any = null;
 
-  constructor() {}
+  emprendimientosList: IProject[] = [] ;
+
+
+  constructor(private _apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.emprendimientos = emprendimientosData;
-  }
-
-  verMas(emprendimiento: any): void {
-    this.emprendimientoSeleccionado = emprendimiento;
-  }
-
-  cerrarDetalle(): void {
-    this.emprendimientoSeleccionado = null;
+    this._apiService.getAllEmprendimientos().subscribe((data: IProject[]) => {
+      this.emprendimientosList = data;
+    })
   }
 }

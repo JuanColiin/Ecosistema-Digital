@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { EmprendimientosComponent } from './emprendimientos/emprendimientos.component';
 import { EmprendimientoDetalleComponent } from './emprendimiento-detalle/emprendimiento-detalle.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -24,7 +25,8 @@ import { EmprendimientoDetalleComponent } from './emprendimiento-detalle/emprend
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule, // forrmularios tipo plantilla
+    HttpClientModule // Para hacer peticiones Http a la API
   ],
   providers: [],
   bootstrap: [AppComponent]

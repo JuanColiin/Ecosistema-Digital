@@ -1,23 +1,14 @@
-<div *ngIf="emprendimientoSeleccionado; else listaEmprendimientos">
-  <app-emprendimiento-detalle
-    [emprendimiento]="emprendimientoSeleccionado"
-    (onVolver)="cerrarDetalle()">
-  </app-emprendimiento-detalle>
-</div>
-
-<ng-template #listaEmprendimientos>
-  <div class="emprendimientos-container">
-    <div *ngFor="let emprendimiento of emprendimientos" class="card">
-      <img [src]="emprendimiento.foto" alt="{{ emprendimiento.nombre }}" class="card-image" />
+<div class="emprendimientos-container">
+    <div *ngFor="let emprendimiento of emprendimientosList" class="card">
+      <img [src]="emprendimiento.image" alt="{{ emprendimiento.title }}" class="card-image" />
       <div class="card-content">
-        <h3 class="card-title">{{ emprendimiento.nombre }}</h3>
-        <p class="card-category">{{ emprendimiento.categoria }}</p>
+        <h3 class="card-title">{{ emprendimiento.title }}</h3>
+        <p class="card-category">{{ emprendimiento.category }}</p>
         <p class="card-description">
-          {{ emprendimiento.descripcion | slice:0:100 }}{{ emprendimiento.descripcion.length > 100 ? '...' : '' }}
+          {{ emprendimiento.description | slice:0:100 }}{{ emprendimiento.description.length > 100 ? '...' : '' }}
         </p>
-        <button class="btn-ver-mas" (click)="verMas(emprendimiento)">Ver más</button>
+        <button class="btn-ver-mas" routerLink="/emprendimientos/{{ emprendimiento.id }}">Ver más</button>
       </div>
     </div>
   </div>
-</ng-template>
 
