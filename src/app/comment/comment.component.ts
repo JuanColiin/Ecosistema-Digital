@@ -10,9 +10,9 @@ import { IComment } from '../models/comment.model';
 })
 export class CommentComponent implements OnInit {
   comments: IComment[] = [];
-  newComment: IComment = { id: 0, text: '', author_id: 1, author_name: 'Usuario', project_id: 1 };
+  newComment: IComment = { id: 0, text: '', author_id: 1, author_name: 'Usuario', project_id: 1 };  // Cambia el author_id por el id del usuario logueado
   editingComment: IComment | null = null;
-  projectId!: number;  // Usamos el operador ! para indicar que no será null/undefined
+  projectId!: number;
 
   constructor(
     private commentService: CommentService,
@@ -20,9 +20,8 @@ export class CommentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Obtiene el projectId desde la URL
     this.route.params.subscribe(params => {
-      this.projectId = +params['projectId'];
+      this.projectId = +params['projectId'];  // Extraemos el projectId desde la URL
       this.getComments();
     });
   }
@@ -41,14 +40,16 @@ export class CommentComponent implements OnInit {
 
   // Crear un nuevo comentario
   createComment(): void {
-    this.newComment.project_id = this.projectId;
+    this.newComment.project_id = this.projectId;// Asociamos el comentario al proyecto
     this.commentService.createComment(this.newComment).subscribe({
       next: (comment) => {
         this.comments.push(comment);  // Agregar el nuevo comentario a la lista
-        this.newComment.text = '';  // Limpiar el campo del formulario
+        this.newComment.text = '';// Limpiar el campo del formulario
+        this.getComments();
       },
       error: (err) => {
         console.error('Error al crear comentario', err);
+        alert('No se ha podido publicar el comentario, intenta nuevamente');
       }
     });
   }
@@ -67,7 +68,7 @@ export class CommentComponent implements OnInit {
 
   // Iniciar el proceso de edición
   editComment(comment: IComment): void {
-    this.editingComment = { ...comment }; // Guardar una copia del comentario que estamos editando
+    this.editingComment = { ...comment };  // Guardar una copia del comentario que estamos editando
   }
 
   // Guardar los cambios en el comentario editado
@@ -75,12 +76,11 @@ export class CommentComponent implements OnInit {
     if (this.editingComment) {
       this.commentService.updateComment(this.editingComment).subscribe(
         (updatedComment) => {
-          // Actualizamos el comentario en la lista de comentarios
           const index = this.comments.findIndex(comment => comment.id === updatedComment.id);
           if (index !== -1) {
-            this.comments[index] = updatedComment; // Reemplazamos el comentario editado en la lista
+            this.comments[index] = updatedComment;
           }
-          this.editingComment = null; // Limpiamos el formulario de edición
+          this.editingComment = null;  // Limpiamos el formulario de edición
         },
         (error) => {
           console.error('Error al actualizar comentario:', error);
@@ -89,5 +89,5 @@ export class CommentComponent implements OnInit {
       );
     }
   }
-
 }
+

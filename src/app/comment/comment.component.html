@@ -1,7 +1,6 @@
 <div class="comment-section">
   <h3>Comentarios</h3>
 
-
   <!-- Mostrar comentarios -->
   <div *ngFor="let comment of comments">
     <div class="comment">
@@ -11,20 +10,17 @@
     </div>
   </div>
 
-
   <!-- Formulario para agregar un comentario -->
   <form *ngIf="!editingComment" (ngSubmit)="createComment()">
     <textarea [(ngModel)]="newComment.text" name="text" placeholder="Escribe tu comentario" required></textarea>
     <button type="submit">Agregar Comentario</button>
   </form>
 
-    <!-- Formulario para editar un comentario -->
-<!-- Formulario para editar un comentario -->
-<form *ngIf="editingComment" (ngSubmit)="saveComment()">
-  <textarea [(ngModel)]="editingComment.text" name="text" required></textarea>
-  <button type="submit">Actualizar Comentario</button>
-  <button type="button" (click)="editingComment = null">Cancelar</button>
-</form>
-
-
+  <!-- Formulario para editar un comentario -->
+  <form *ngIf="editingComment" (ngSubmit)="saveComment()">
+    <textarea [(ngModel)]="editingComment.text" name="text" required></textarea>
+    <button type="submit">Actualizar Comentario</button>
+    <button type="button" (click)="editingComment = null">Cancelar</button>
+  </form>
 </div>
+

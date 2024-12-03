@@ -7,28 +7,28 @@ import { IComment } from '../models/comment.model';
   providedIn: 'root'
 })
 export class CommentService {
-  private baseUrl = 'http://localhost:8080/comment';  // URL de la API de comentarios
+
+  private apiUrl = 'http://localhost:8080/comment';  // URL del endpoint
 
   constructor(private http: HttpClient) { }
 
-  // Obtener comentarios por proyecto
+  // Obtener los comentarios de un proyecto
   getCommentsByProjectId(projectId: number): Observable<IComment[]> {
-    return this.http.get<IComment[]>(`${this.baseUrl}/project/${projectId}`);
+    return this.http.get<IComment[]>(`${this.apiUrl}/project/${projectId}`);
   }
 
-  // Crear un nuevo comentario
+  // Crear un comentario
   createComment(comment: IComment): Observable<IComment> {
-    return this.http.post<IComment>(`${this.baseUrl}/comment`, comment);
+    return this.http.post<IComment>(this.apiUrl, comment);
   }
-
 
   // Eliminar un comentario
   deleteComment(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
   // Actualizar un comentario
   updateComment(comment: IComment): Observable<IComment> {
-    return this.http.put<IComment>(`${this.baseUrl}/${comment.id}`, comment);
+    return this.http.put<IComment>(`${this.apiUrl}/${comment.id}`, comment);
   }
 }
