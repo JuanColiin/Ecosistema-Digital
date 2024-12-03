@@ -19,4 +19,7 @@
 
     <button type="submit" [disabled]="loginForm.invalid" class="btn-submit">Iniciar sesión</button>
   </form>
+
+  <!-- Mensaje de éxito o error -->
+  <p *ngIf="message" class="message">{{ message }}</p>
 </div>

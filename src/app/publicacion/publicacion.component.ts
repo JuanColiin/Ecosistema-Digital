@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PublicacionService } from '../services/publicacion.service';
-import { Categoria } from '../models/categoria.enum';
 
 @Component({
   selector: 'app-publicacion',
@@ -11,33 +10,44 @@ import { Categoria } from '../models/categoria.enum';
 export class PublicacionComponent implements OnInit {
 
   publicacionForm: FormGroup;
-  categorias = Object.values(Categoria); // Mapeamos el enum para mostrarlo en el formulario
+  categorias = ['HEALTH', 'TECH', 'EDUCATION', 'ENVIRONMENT'];
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
 
   constructor(private fb: FormBuilder, private publicacionService: PublicacionService) {
-    // Inicializamos el formulario en el constructor
     this.publicacionForm = this.fb.group({
       nombre: ['', Validators.required],
       descripcion: ['', Validators.required],
-      categoria: [null],
+      categoria: [null, Validators.required],
       foto: ['', Validators.required],
       ciudad: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {
-    // Aquí no es necesario inicializar de nuevo, ya que lo hacemos en el constructor
-  }
+  ngOnInit(): void {}
 
   onSubmit(): void {
     if (this.publicacionForm.valid) {
-      this.publicacionService.createPublicacion(this.publicacionForm.value).subscribe(
-        response => {
-          console.log('Publicación creada', response);
+      const formData = {
+        name: this.publicacionForm.value.nombre,
+        description: this.publicacionForm.value.descripcion,
+        category: this.publicacionForm.value.categoria,
+        city: this.publicacionForm.value.ciudad,
+        picture: this.publicacionForm.value.foto,
+        pushing: { id: 1 } // Asignando un ID de prueba por defecto
+      };
+
+      this.publicacionService.createPublicacion(formData).subscribe({
+        next: (response) => {
+          this.successMessage = `¡Publicación creada exitosamente! Proyecto: ${response.name}`;
+          this.errorMessage = null;
+          this.publicacionForm.reset();
         },
-        error => {
-          console.error('Error al crear publicación', error);
+        error: () => {
+          this.errorMessage = 'No se ha podido publicar el proyecto. Inténtalo nuevamente.';
+          this.successMessage = null;
         }
-      );
+      });
     }
   }
 }

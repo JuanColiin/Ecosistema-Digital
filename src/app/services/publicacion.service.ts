@@ -6,12 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PublicacionService {
-
-  private apiUrl = 'http://localhost:8080/publicaciones'; // Endpoint placeholder
+  private baseUrl = 'http://localhost:8080/project';
 
   constructor(private http: HttpClient) {}
 
-  createPublicacion(publicacionData: any): Observable<any> {
-    return this.http.post(this.apiUrl, publicacionData);
+  createPublicacion(data: any): Observable<any> {
+    return this.http.post<any>(this.baseUrl, data);
   }
 }

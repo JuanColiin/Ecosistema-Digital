@@ -1,12 +1,6 @@
 <div class="comment-section">
   <h3>Comentarios</h3>
 
-  <!-- Formulario para editar un comentario -->
-  <form *ngIf="editingComment" (ngSubmit)="updateComment()">
-    <textarea [(ngModel)]="editingComment.text" name="text" required></textarea>
-    <button type="submit">Actualizar Comentario</button>
-    <button type="button" (click)="editingComment = null">Cancelar</button>
-  </form>
 
   <!-- Mostrar comentarios -->
   <div *ngFor="let comment of comments">
@@ -23,5 +17,14 @@
     <textarea [(ngModel)]="newComment.text" name="text" placeholder="Escribe tu comentario" required></textarea>
     <button type="submit">Agregar Comentario</button>
   </form>
+
+    <!-- Formulario para editar un comentario -->
+<!-- Formulario para editar un comentario -->
+<form *ngIf="editingComment" (ngSubmit)="saveComment()">
+  <textarea [(ngModel)]="editingComment.text" name="text" required></textarea>
+  <button type="submit">Actualizar Comentario</button>
+  <button type="button" (click)="editingComment = null">Cancelar</button>
+</form>
+
 
 </div>

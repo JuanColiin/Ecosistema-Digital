@@ -9,15 +9,15 @@ import { IComment } from '../models/comment.model';
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
-    comments: IComment[] = [];
-    newComment: IComment = { id: 0, text: '', author_id: 1, author_name: 'Usuario', project_id: 1 };
-    editingComment: IComment | null = null;
-    projectId!: number;  // Usamos el operador ! para indicar que no será null/undefined
+  comments: IComment[] = [];
+  newComment: IComment = { id: 0, text: '', author_id: 1, author_name: 'Usuario', project_id: 1 };
+  editingComment: IComment | null = null;
+  projectId!: number;  // Usamos el operador ! para indicar que no será null/undefined
 
-    constructor(
-      private commentService: CommentService,
-      private route: ActivatedRoute
-    ) { }
+  constructor(
+    private commentService: CommentService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     // Obtiene el projectId desde la URL
@@ -67,24 +67,27 @@ export class CommentComponent implements OnInit {
 
   // Iniciar el proceso de edición
   editComment(comment: IComment): void {
-    this.editingComment = { ...comment };  // Hacemos una copia del comentario para editarlo
+    this.editingComment = { ...comment }; // Guardar una copia del comentario que estamos editando
   }
 
-  // Actualizar un comentario
-  updateComment(): void {
+  // Guardar los cambios en el comentario editado
+  saveComment(): void {
     if (this.editingComment) {
-      this.commentService.updateComment(this.editingComment).subscribe({
-        next: (updatedComment) => {
-          const index = this.comments.findIndex(c => c.id === updatedComment.id);
+      this.commentService.updateComment(this.editingComment).subscribe(
+        (updatedComment) => {
+          // Actualizamos el comentario en la lista de comentarios
+          const index = this.comments.findIndex(comment => comment.id === updatedComment.id);
           if (index !== -1) {
-            this.comments[index] = updatedComment;  // Actualizar el comentario en la lista
+            this.comments[index] = updatedComment; // Reemplazamos el comentario editado en la lista
           }
-          this.editingComment = null;  // Limpiar el campo de edición
+          this.editingComment = null; // Limpiamos el formulario de edición
         },
-        error: (err) => {
-          console.error('Error al actualizar comentario', err);
+        (error) => {
+          console.error('Error al actualizar comentario:', error);
+          alert('Hubo un error al actualizar el comentario. Por favor, inténtalo de nuevo.');
         }
-      });
+      );
     }
   }
+
 }

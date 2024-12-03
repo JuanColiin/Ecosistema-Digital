@@ -18,8 +18,9 @@ export class CommentService {
 
   // Crear un nuevo comentario
   createComment(comment: IComment): Observable<IComment> {
-    return this.http.post<IComment>(this.baseUrl, comment);
+    return this.http.post<IComment>(`${this.baseUrl}/comment`, comment);
   }
+
 
   // Eliminar un comentario
   deleteComment(id: number): Observable<void> {

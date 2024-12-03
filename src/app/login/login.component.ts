@@ -8,36 +8,39 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
   loginForm: FormGroup;
+  message: string = ''; // Para mostrar mensajes de éxito o error
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService
   ) {
-    // Inicializando loginForm con FormBuilder
+    // Inicializando el formulario de login
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
   onSubmit(): void {
     if (this.loginForm.invalid) {
-      return; // Si el formulario es inválido, no hacer nada
+      this.message = 'Por favor, completa el formulario correctamente.';
+      return;
     }
 
-    // Aquí es donde se realizaría la llamada al servicio de login
     const formData = this.loginForm.value;
-    console.log('Datos de login:', formData);
+
     this.authService.login(formData).subscribe({
       next: (response) => {
-        console.log('Login exitoso:', response);
-        // Redirigir o manejar el login exitoso
+        this.message = `Inicio de sesión exitoso. Bienvenido, ${response.name}`;
       },
       error: (error) => {
-        console.error('Error en el login:', error);
-      }
+        if (error.status === 401) {
+          this.message = 'Error al iniciar sesión. Verifique sus credenciales.';
+        } else {
+          this.message = 'Error al conectar con el servidor. Inténtalo nuevamente.';
+        }
+      },
     });
   }
 }

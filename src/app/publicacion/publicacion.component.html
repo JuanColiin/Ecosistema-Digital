@@ -1,14 +1,20 @@
 <div class="publicacion-form-container">
-  <h2>Publica tu emprendimiento</h2>
+  <h2>Publica tu proyecto</h2>
   <form [formGroup]="publicacionForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="nombre">Nombre:</label>
-      <input id="nombre" formControlName="nombre" type="text" class="form-control" placeholder="Nombre de la publicación" required>
+      <input id="nombre" formControlName="nombre" type="text" class="form-control" placeholder="Nombre del proyecto" />
+      <div *ngIf="publicacionForm.get('nombre')?.invalid && publicacionForm.get('nombre')?.touched" class="error-message">
+        El nombre es obligatorio.
+      </div>
     </div>
 
     <div class="form-group">
       <label for="descripcion">Descripción:</label>
-      <textarea id="descripcion" formControlName="descripcion" class="form-control" placeholder="Descripción de la publicación" required></textarea>
+      <textarea id="descripcion" formControlName="descripcion" class="form-control" placeholder="Descripción del proyecto"></textarea>
+      <div *ngIf="publicacionForm.get('descripcion')?.invalid && publicacionForm.get('descripcion')?.touched" class="error-message">
+        La descripción es obligatoria.
+      </div>
     </div>
 
     <div class="form-group">
@@ -17,17 +23,34 @@
         <option value="" disabled>Selecciona una categoría</option>
         <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
       </select>
+      <div *ngIf="publicacionForm.get('categoria')?.invalid && publicacionForm.get('categoria')?.touched" class="error-message">
+        La categoría es obligatoria.
+      </div>
     </div>
 
     <div class="form-group">
       <label for="foto">Foto (URL):</label>
-      <input id="foto" formControlName="foto" type="url" class="form-control" placeholder="URL de la imagen" required>
+      <input id="foto" formControlName="foto" type="url" class="form-control" placeholder="URL de la imagen" />
+      <div *ngIf="publicacionForm.get('foto')?.invalid && publicacionForm.get('foto')?.touched" class="error-message">
+        La URL de la imagen es obligatoria.
+      </div>
     </div>
 
     <div class="form-group">
       <label for="ciudad">Ciudad:</label>
-      <input id="ciudad" formControlName="ciudad" type="text" class="form-control" placeholder="" required>
+      <input id="ciudad" formControlName="ciudad" type="text" class="form-control" placeholder="Ciudad del proyecto" />
+      <div *ngIf="publicacionForm.get('ciudad')?.invalid && publicacionForm.get('ciudad')?.touched" class="error-message">
+        La ciudad es obligatoria.
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!publicacionForm.valid">Crear Publicación</button>
+
+    <button type="submit" class="btn btn-primary" [disabled]="publicacionForm.invalid">Crear Publicación</button>
   </form>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
 </div>
