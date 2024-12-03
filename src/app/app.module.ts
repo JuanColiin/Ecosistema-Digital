@@ -11,6 +11,7 @@ import { EmprendimientosComponent } from './emprendimientos/emprendimientos.comp
 import { EmprendimientoDetalleComponent } from './emprendimiento-detalle/emprendimiento-detalle.component';
 import { HttpClientModule } from '@angular/common/http'; // Para hacer peticiones Http a la API
 import { PublicacionComponent } from './publicacion/publicacion.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { PublicacionComponent } from './publicacion/publicacion.component';
     EmprendimientosComponent,
     EmprendimientoDetalleComponent,
     PublicacionComponent,
+    CommentComponent,
 
   ],
   imports: [

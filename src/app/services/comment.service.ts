@@ -1,32 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IComment } from '../models/comment.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class CommentService {
-  private apiUrl = 'http://localhost:8080/comment/project';  // Endpoint de los comentarios
+  private baseUrl = 'http://localhost:8080/comment';  // URL de la API de comentarios
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  // Obtener comentarios por projectId
-  getCommentsByProject(projectId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/${projectId}`);
+  // Obtener comentarios por proyecto
+  getCommentsByProjectId(projectId: number): Observable<IComment[]> {
+    return this.http.get<IComment[]>(`${this.baseUrl}/project/${projectId}`);
   }
 
   // Crear un nuevo comentario
-  createComment(comment: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}`, comment);
+  createComment(comment: IComment): Observable<IComment> {
+    return this.http.post<IComment>(this.baseUrl, comment);
   }
 
   // Eliminar un comentario
-  deleteComment(commentId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${commentId}`);
+  deleteComment(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 
   // Actualizar un comentario
-  updateComment(commentId: number, updatedComment: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${commentId}`, updatedComment);
+  updateComment(comment: IComment): Observable<IComment> {
+    return this.http.put<IComment>(`${this.baseUrl}/${comment.id}`, comment);
   }
 }

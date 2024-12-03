@@ -1,0 +1,100 @@
+/* Contenedor principal de los comentarios */
+.comment-container {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para cada comentario */
+.comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el texto del comentario */
+.comment p {
+  flex-grow: 1;
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Estilo para los botones */
+button {
+  background-color: #FB5012;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Cambio de color de los botones al pasar el mouse */
+button:hover {
+  background-color: #e94f0a;
+}
+
+/* Estilo para el input de edición */
+input {
+  width: 80%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+/* Estilo para el formulario de nuevo comentario */
+.new-comment-form {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el input del nuevo comentario */
+.new-comment-form input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+/* Estilo para los botones de acción en el nuevo comentario */
+.new-comment-form button {
+  background-color: #FB5012;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Cambio de color al pasar el mouse sobre el botón de agregar comentario */
+.new-comment-form button:hover {
+  background-color: #e94f0a;
+}
+
+/* Estilo para el botón de cancelar en la edición */
+button.cancel {
+  background-color: #666A83;
+}
+
+/* Estilo para el botón de cancelar en la edición (hover) */
+button.cancel:hover {
+  background-color: #555a70;
+}
