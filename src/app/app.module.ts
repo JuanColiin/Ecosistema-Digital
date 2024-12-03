@@ -10,8 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Solo React
 import { EmprendimientosComponent } from './emprendimientos/emprendimientos.component';
 import { EmprendimientoDetalleComponent } from './emprendimiento-detalle/emprendimiento-detalle.component';
 import { HttpClientModule } from '@angular/common/http'; // Para hacer peticiones Http a la API
-import { CommentComponent } from './comment/comment.component';
 import { PublicacionComponent } from './publicacion/publicacion.component';
+
 
 @NgModule({
   declarations: [
@@ -21,15 +21,15 @@ import { PublicacionComponent } from './publicacion/publicacion.component';
     LoginComponent,
     EmprendimientosComponent,
     EmprendimientoDetalleComponent,
-    CommentComponent,
     PublicacionComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, // Para hacer peticiones Http a la API
-    ReactiveFormsModule, // Para usar FormBuilder
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
