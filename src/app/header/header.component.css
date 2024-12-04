@@ -3,21 +3,30 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 5%;
   background-color: #22223B; /* Gris oscuro para el fondo */
   color: #FFFCF2; /* Blanco cremoso para el texto */
-  border-bottom: 3px solid #666A83; /* Naranja para el borde inferior */
+  border-bottom: 3px solid #666A83; /* Gris para el borde inferior */
+  flex-wrap: wrap;
+  gap: 10px;
 }
+
+/* Estilo para el nombre de la aplicación */
 .name-emprendeco {
   font-size: 1.5rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-style: italic;
+  text-align: center;
+  margin-bottom: 0; /* Eliminamos el margen inferior para asegurar alineación */
+  line-height: 60px; /* Asegura que el título esté centrado verticalmente */
 }
+
 /* Estilo para el logo y la parte izquierda del header */
 .left {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -35,7 +44,7 @@ header {
 /* Estilo para el link de "Publicar" */
 .link-publicar {
   font-size: 1rem;
-  color: #FB5012;  /* Naranja para resaltar el link */
+  color: #FB5012; /* Naranja para resaltar el link */
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
@@ -43,12 +52,18 @@ header {
 
 .link-publicar:hover {
   text-decoration: underline;
-  color: #FFFCF2;  /* Blanco cremoso en hover para resaltar */
+  color: #FFFCF2; /* Blanco cremoso en hover para resaltar */
 }
 
 /* Estilo para los botones de acción */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Alinea botones centrados en pantallas pequeñas */
+  gap: 10px;
+}
+
 .actions button {
-  margin-left: 10px;
   padding: 8px 12px;
   font-size: 1rem;
   border: none;
@@ -57,13 +72,71 @@ header {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  min-width: 100px; /* Ancho mínimo para uniformidad */
 }
 
 .actions button:hover {
-  background-color: #666A83;  /* Gris claro en hover */
+  background-color: #666A83; /* Gris claro en hover */
 }
 
 /* Ajustes adicionales para mejorar la accesibilidad */
 button:focus, .link-publicar:focus {
   outline: 2px solid #FB5012; /* Resaltado de foco con el color naranja */
+}
+
+/* Responsividad para dispositivos pequeños */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .name-emprendeco {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    line-height: 50px; /* Alineamos el título con el logo */
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .actions {
+    flex-direction: row; /* Los botones en fila en dispositivos pequeños */
+    justify-content: center;
+    width: 100%; /* Asegura que los botones ocupen todo el ancho disponible */
+  }
+
+  .actions button {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .link-publicar {
+    font-size: 0.9rem;
+  }
+
+  .actions {
+    flex-direction: row; /* Botones en fila */
+    width: 100%; /* Alineación completa */
+    gap: 10px; /* Espaciado entre los botones */
+  }
+
+  .actions button {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    width: auto; /* Los botones no ocupan todo el ancho */
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .name-emprendeco {
+    font-size: 1.1rem; /* Ajustamos el tamaño del texto para pantallas más pequeñas */
+    line-height: 40px; /* Alineación perfecta con el logo */
+    margin-bottom: 0; /* Eliminamos margen inferior */
+  }
 }

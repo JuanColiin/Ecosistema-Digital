@@ -11,8 +11,8 @@
 /* Estilo para cada comentario */
 .comment {
   display: flex;
+  flex-direction: column; /* Coloca los elementos en columna */
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 15px;
   padding: 10px;
   background-color: #fff;
@@ -23,7 +23,7 @@
 /* Estilo para el texto del comentario */
 .comment p {
   flex-grow: 1;
-  margin: 0;
+  margin: 0 0 10px 0; /* Espacio inferior entre texto y botones */
   font-size: 16px;
   color: #333;
 }
@@ -31,11 +31,9 @@
 /* Contenedor de botones en cada comentario */
 .comment-buttons {
   display: flex;
+  justify-content: flex-start; /* Alinea los botones a la izquierda */
   gap: 10px;
-}
-.comment-title {
-  color: #FFFCF2;
-  margin-top: 20px;
+  margin-top: 10px; /* Separación entre los botones y el contenido */
 }
 
 /* Estilo para los botones */
@@ -120,4 +118,82 @@ button.cancel:hover {
   display: flex;
   gap: 10px;
   margin-top: 10px;
+}
+
+/* Estilo para el h3 */
+.comment-title {
+  color: #FFFCF2;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Estilos responsivos */
+
+/* Pantallas pequeñas y tablets */
+@media (max-width: 768px) {
+  .comment-buttons {
+    flex-direction: row; /* Botones en fila (no en columna) en pantallas pequeñas */
+    justify-content: flex-start; /* Alinea los botones a la izquierda */
+    gap: 10px; /* Espaciado entre botones */
+    margin-top: 10px;
+  }
+
+  button {
+    font-size: 12px; /* Reduce el tamaño del texto en los botones */
+    padding: 6px 12px; /* Botones más pequeños */
+  }
+
+  .new-comment-form {
+    gap: 8px; /* Reduce el espacio entre los campos del formulario */
+  }
+
+  .new-comment-form textarea {
+    font-size: 14px; /* Reducir tamaño del texto en textarea */
+    padding: 10px; /* Ajuste de padding */
+  }
+
+  .primary-button {
+    font-size: 14px; /* Botón más pequeño */
+    padding: 8px 12px; /* Ajuste de padding */
+  }
+
+  .comment-title {
+    font-size: 16px; /* Reduce el tamaño del h3 en pantallas pequeñas */
+    margin-top: 10px; /* Ajuste de margen */
+  }
+}
+
+/* Pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+  .comment-buttons {
+    width: 100%; /* Botones ocupan todo el ancho */
+    justify-content: flex-start; /* Alineados a la izquierda */
+    gap: 10px; /* Espaciado entre botones */
+  }
+
+  button {
+    font-size: 10px; /* Tamaño de texto más pequeño */
+    padding: 4px 10px; /* Botones más compactos */
+  }
+
+  .new-comment-form {
+    gap: 8px; /* Reduce el espacio entre los campos del formulario */
+  }
+
+  .new-comment-form textarea {
+    font-size: 14px; /* Reducir tamaño del texto en textarea */
+    padding: 8px; /* Ajuste de padding */
+  }
+
+  .primary-button {
+    font-size: 12px; /* Botón más pequeño */
+    padding: 6px 10px; /* Ajuste de padding */
+  }
+
+  .comment-title {
+    font-size: 14px; /* Ajuste de tamaño de fuente en móviles */
+    margin-top: 5px; /* Menor espacio en pantallas móviles */
+  }
 }

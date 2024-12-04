@@ -1,8 +1,8 @@
 /* Contenedor principal del formulario */
 .registro-container {
-  width: 100%;
-  max-width: 500px;
-  margin: 50px auto;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 500px; /* Máximo ancho en pantallas grandes */
+  margin: 50px auto; /* Centrado horizontal y margen superior/inferior */
   padding: 20px;
   background-color: #FFFCF2; /* Blanco cremoso para el fondo */
   border-radius: 8px;
@@ -22,6 +22,7 @@ h2 {
 /* Contenedor de los campos del formulario */
 .form-group {
   margin-bottom: 15px;
+  width: 100%; /* Mantiene proporción del formulario */
 }
 
 /* Etiquetas */
@@ -34,7 +35,7 @@ label {
 
 /* Estilo de los inputs y selects */
 input, select {
-  width: 100%;
+  width: 100%; /* Ocupan todo el ancho del contenedor */
   padding: 12px;
   font-size: 16px;
   border-radius: 4px;
@@ -78,18 +79,47 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Estilos para pantallas pequeñas */
+/* Responsividad para pantallas medianas */
+@media (max-width: 1024px) {
+  .registro-container {
+    max-width: 400px; /* Reduce el tamaño proporcionalmente */
+  }
+
+  h2 {
+    font-size: 1.8rem; /* Ajusta el tamaño del título */
+    margin-bottom: 30px;
+  }
+
+  input, select {
+    font-size: 15px;
+    padding: 10px; /* Reduce el padding */
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+/* Responsividad para pantallas pequeñas */
 @media (max-width: 600px) {
   .registro-container {
-    padding: 15px;
-    margin: 20px;
+    max-width: 300px; /* Reduce aún más el tamaño */
+    padding: 15px; /* Ajusta el padding */
+  }
+
+  h2 {
+    font-size: 1.6rem; /* Reduce el tamaño del título */
+    margin-bottom: 20px;
   }
 
   input, select {
     font-size: 14px;
+    padding: 8px; /* Reduce el padding */
   }
 
   button {
     font-size: 14px;
+    padding: 10px;
   }
 }
