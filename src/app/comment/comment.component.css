@@ -1,10 +1,11 @@
 /* Contenedor principal de los comentarios */
 .comment-container {
   margin: 20px 0;
-  padding: 10px;
-  background-color: #f9f9f9;
+  align-items: center;
+  background-color: #22223B; /* Color más cálido */
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #FB5012; /* Indicador visual */
 }
 
 /* Estilo para cada comentario */
@@ -27,13 +28,24 @@
   color: #333;
 }
 
+/* Contenedor de botones en cada comentario */
+.comment-buttons {
+  display: flex;
+  gap: 10px;
+}
+.comment-title {
+  color: #FFFCF2;
+  margin-top: 20px;
+}
+
 /* Estilo para los botones */
 button {
   background-color: #FB5012;
   color: #fff;
   border: none;
-  padding: 6px 12px;
+  padding: 8px 16px;
   border-radius: 4px;
+  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -43,58 +55,69 @@ button:hover {
   background-color: #e94f0a;
 }
 
-/* Estilo para el input de edición */
-input {
-  width: 80%;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 10px;
+/* Botón de cancelar */
+button.cancel {
+  background-color: #666A83;
 }
 
-/* Estilo para el formulario de nuevo comentario */
+button.cancel:hover {
+  background-color: #555a70;
+}
+
+/* Formulario para agregar o editar comentarios */
 .new-comment-form {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 12px;
   margin-top: 20px;
   padding: 10px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Coincide con el ancho de las tarjetas */
+  box-sizing: border-box;
 }
 
-/* Estilo para el input del nuevo comentario */
-.new-comment-form input {
-  flex-grow: 1;
-  padding: 10px;
+/* Estilo para el área de texto */
+.new-comment-form textarea {
+  width: 100%;
+  padding: 12px;
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 10px;
+  border-radius: 8px;
+  resize: none;
+  background-color: #FFFCF2; /* Mantiene el color cálido */
+  color: #333;
 }
 
-/* Estilo para los botones de acción en el nuevo comentario */
-.new-comment-form button {
+/* Cambios de estilo del área de texto al enfocar */
+.new-comment-form textarea:focus {
+  outline: none;
+  border-color: #FB5012;
+  box-shadow: 0 0 4px #FB5012;
+}
+
+/* Botón de enviar comentario */
+.primary-button {
+  align-self: flex-start;
+  padding: 10px 15px;
   background-color: #FB5012;
   color: #fff;
   border: none;
-  padding: 10px 15px;
   border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Cambio de color al pasar el mouse sobre el botón de agregar comentario */
-.new-comment-form button:hover {
+/* Cambio de color del botón al pasar el mouse */
+.primary-button:hover {
   background-color: #e94f0a;
 }
 
-/* Estilo para el botón de cancelar en la edición */
-button.cancel {
-  background-color: #666A83;
-}
-
-/* Estilo para el botón de cancelar en la edición (hover) */
-button.cancel:hover {
-  background-color: #555a70;
+/* Contenedor de botones en la edición */
+.edit-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }

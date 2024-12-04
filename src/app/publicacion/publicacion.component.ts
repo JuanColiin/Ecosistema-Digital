@@ -10,7 +10,7 @@ import { PublicacionService } from '../services/publicacion.service';
 export class PublicacionComponent implements OnInit {
 
   publicacionForm: FormGroup;
-  categorias = ['HEALTH', 'TECH', 'EDUCATION', 'ENVIRONMENT'];
+  categorias = ['HEALTH', 'TECHNOLOGY', 'EDUCATION', 'FINANCE'];
   successMessage: string | null = null;
   errorMessage: string | null = null;
 
@@ -34,7 +34,7 @@ export class PublicacionComponent implements OnInit {
         category: this.publicacionForm.value.categoria,
         city: this.publicacionForm.value.ciudad,
         picture: this.publicacionForm.value.foto,
-        pushing: { id: 1 } // Asignando un ID de prueba por defecto
+        pushing: { id: 25 } // Asignando un ID de prueba por defecto
       };
 
       this.publicacionService.createPublicacion(formData).subscribe({

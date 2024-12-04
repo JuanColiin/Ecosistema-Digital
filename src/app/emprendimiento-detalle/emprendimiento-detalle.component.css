@@ -2,41 +2,69 @@
 .detalle-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: space-between;
   padding: 16px;
   background-color: #22223B; /* Blanco cremoso */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
+  height: auto; /* Altura ajustable para permitir más contenido */
+  max-width: 100%; /* Asegura que el contenedor no se estire más allá del ancho del dispositivo */
+}
+h4 {
+  color: antiquewhite;
+}
+p {
+  color: antiquewhite;
 }
 
-/* Imagen del emprendimiento */
+.correo {
+  color: rgb(225, 32, 11);
+}
+
+/* Contenedor de la imagen (a la izquierda) */
+.detalle-image-container {
+  flex: 0 0 48%; /* 48% del ancho para la imagen, asegurando algo de espacio entre la imagen y la descripción */
+  display: flex;
+  justify-content: center; /* Centra la imagen dentro del contenedor */
+  align-items: center; /* Centra la imagen verticalmente */
+  max-height: 250px; /* Limita la altura máxima de la imagen */
+  overflow: hidden; /* Asegura que no se desborde */
+  padding-right: 16px; /* Espaciado a la derecha de la imagen */
+}
+
 .detalle-image {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
+  width: 100%; /* La imagen ocupa todo el ancho disponible */
+  height: auto; /* Mantiene la relación de aspecto */
+  max-height: 370px; /* Limita la altura máxima para que la imagen no sea demasiado grande */
+  object-fit: contain; /* Mantiene la relación de aspecto sin cortar ni estirar */
   border-radius: 8px;
-  margin-bottom: 16px;
 }
 
-/* Contenedor del contenido */
+/* Contenedor del contenido (a la derecha) */
 .detalle-content {
+  flex: 0 0 48%; /* 48% del ancho para la descripción */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Asegura que el contacto quede al final */
   text-align: center;
   color: #22223B; /* Gris oscuro para el texto */
+  padding-left: 16px;
+  height: auto; /* Ajusta la altura según el contenido */
 }
 
 /* Título del emprendimiento */
 .detalle-title {
   font-size: 2rem;
   margin-bottom: 8px;
-  color: #FB5012; /* Gris oscuro */
+  color: #FFFCF2; /* Gris oscuro */
   font-weight: bold;
 }
 
 /* Categoría del emprendimiento */
 .detalle-category {
   font-size: 1.2rem;
-  color: #FB5012; /* Gris intermedio */
+  color: #f27171; /* Gris intermedio */
   margin-bottom: 16px;
   font-weight: bold;
 }
@@ -47,6 +75,22 @@
   color: #FFFCF2; /* Gris claro */
   line-height: 1.5;
   margin-bottom: 16px;
+  text-align: left; /* Alinea el texto a la izquierda */
+  max-height: 150px; /* Limita la altura máxima de la descripción */
+  overflow-y: auto; /* Agrega scroll si el contenido es demasiado largo */
+}
+
+/* Contenedor de la parte de contacto (pushingName y pushingEmail) */
+.detalle-contact {
+  font-size: 1rem;
+  color: #FFFCF2; /* Gris claro */
+  line-height: 1.5;
+  margin-top: auto; /* Asegura que quede en la parte inferior */
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.detalle-contact p {
+  margin-bottom: 8px;
 }
 
 /* Botón "Volver" */
@@ -59,9 +103,29 @@
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease;
+  margin-top: 16px;
 }
 
 /* Efecto hover del botón */
 .btn-volver:hover {
   background-color: #22223B; /* Gris oscuro */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .detalle-container {
+    flex-direction: column;
+    height: auto; /* El alto se ajustará en pantallas más pequeñas */
+  }
+
+  .detalle-image-container {
+    flex: 0 0 100%; /* La imagen ocupa el 100% del ancho en pantallas pequeñas */
+    margin-bottom: 16px;
+  }
+
+  .detalle-content {
+    text-align: center;
+    padding: 0 16px;
+    max-width: 100%; /* Permite que el contenido ocupe todo el espacio disponible */
+  }
 }

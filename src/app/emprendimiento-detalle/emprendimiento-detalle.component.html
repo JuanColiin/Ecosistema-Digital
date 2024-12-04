@@ -8,9 +8,18 @@
     <h2 class="detalle-title">{{ project?.name }}</h2>
     <p class="detalle-category">{{ project?.category }}</p>
     <p class="detalle-description">{{ project?.description }}</p>
+
+    <!-- Sección de contacto -->
+    <div class="contacto">
+      <h4>Contacto:</h4>
+      <p><strong>Emprendedor: </strong> {{ project?.pushingName }}</p>
+      <p><strong>Email:  </strong> <a class="correo"  href="mailto:{{ project?.pushingEmail }}">{{ project?.pushingEmail }}</a></p>
+    </div>
+
     <button class="btn-volver" (click)="volver()">Volver</button>
   </div>
 </div>
+
 <!-- Renderiza el componente de comentarios aquí -->
  <app-comment></app-comment>
 

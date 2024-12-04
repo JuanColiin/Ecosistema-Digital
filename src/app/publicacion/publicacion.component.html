@@ -1,9 +1,9 @@
 <div class="publicacion-form-container">
-  <h2>Publica tu proyecto</h2>
+  <h2>Publica tu emprendimiento</h2>
   <form [formGroup]="publicacionForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="nombre">Nombre:</label>
-      <input id="nombre" formControlName="nombre" type="text" class="form-control" placeholder="Nombre del proyecto" />
+      <input id="nombre" formControlName="nombre" type="text" class="form-control" placeholder="Nombre del emprendimiento" />
       <div *ngIf="publicacionForm.get('nombre')?.invalid && publicacionForm.get('nombre')?.touched" class="error-message">
         El nombre es obligatorio.
       </div>
@@ -11,7 +11,7 @@
 
     <div class="form-group">
       <label for="descripcion">Descripción:</label>
-      <textarea id="descripcion" formControlName="descripcion" class="form-control" placeholder="Descripción del proyecto"></textarea>
+      <textarea id="descripcion" formControlName="descripcion" class="form-control" placeholder="Descripción del emprendimiento"></textarea>
       <div *ngIf="publicacionForm.get('descripcion')?.invalid && publicacionForm.get('descripcion')?.touched" class="error-message">
         La descripción es obligatoria.
       </div>
@@ -19,7 +19,7 @@
 
     <div class="form-group">
       <label for="categoria">Categoría:</label>
-      <select id="categoria" formControlName="categoria" class="form-control">
+      <select id="categoria" formControlName="categoria" class="form-control" >
         <option value="" disabled>Selecciona una categoría</option>
         <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
       </select>
@@ -38,7 +38,7 @@
 
     <div class="form-group">
       <label for="ciudad">Ciudad:</label>
-      <input id="ciudad" formControlName="ciudad" type="text" class="form-control" placeholder="Ciudad del proyecto" />
+      <input id="ciudad" formControlName="ciudad" type="text" class="form-control" placeholder="Ciudad del emprendimiento" />
       <div *ngIf="publicacionForm.get('ciudad')?.invalid && publicacionForm.get('ciudad')?.touched" class="error-message">
         La ciudad es obligatoria.
       </div>
