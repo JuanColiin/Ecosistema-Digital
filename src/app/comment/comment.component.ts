@@ -10,7 +10,7 @@ import { IComment } from '../models/comment.model';
 })
 export class CommentComponent implements OnInit {
   comments: IComment[] = [];
-  newComment: IComment = { id: 0, text: '', author_id: 1, author_name: 'Usuario', project_id: 1 };  // Cambia el author_id por el id del usuario logueado
+  newComment: IComment = { id: 0, text: '', author_id: 25, author_name: 'Usuario', project_id: 1 };  // Cambia el author_id por el id del usuario logueado
   editingComment: IComment | null = null;
   projectId!: number;
 
