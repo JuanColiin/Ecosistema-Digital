@@ -53,9 +53,6 @@ export class EmprendimientoDetalleComponent implements OnInit {
   }
 
 
-
-
-
   volver(): void {
     this.router.navigate(['/']);
   }

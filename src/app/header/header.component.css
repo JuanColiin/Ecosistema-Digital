@@ -1,4 +1,3 @@
-/* Estilo general para el header */
 header {
   display: flex;
   justify-content: space-between;
@@ -82,6 +81,10 @@ header {
 /* Ajustes adicionales para mejorar la accesibilidad */
 button:focus, .link-publicar:focus {
   outline: 2px solid #FB5012; /* Resaltado de foco con el color naranja */
+}
+
+.emprendimientos-button {
+  background-color: #12a9fb; /* Naranja para resaltar el botón */
 }
 
 /* Responsividad para dispositivos pequeños */
