@@ -1,31 +1,31 @@
+/* Estilo general del header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 5%;
-  background-color: #22223B; /* Gris oscuro para el fondo */
-  color: #FFFCF2; /* Blanco cremoso para el texto */
-  border-bottom: 3px solid #666A83; /* Gris para el borde inferior */
+  background-color: #22223B;
+  color: #FFFCF2;
+  border-bottom: 3px solid #666A83;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-/* Estilo para el nombre de la aplicación */
+/* Nombre de la aplicación */
 .name-emprendeco {
   font-size: 1.5rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-style: italic;
   text-align: center;
-  margin-bottom: 0; /* Eliminamos el margen inferior para asegurar alineación */
-  line-height: 60px; /* Asegura que el título esté centrado verticalmente */
+  margin-bottom: 0;
+  line-height: 60px;
 }
 
-/* Estilo para el logo y la parte izquierda del header */
+/* Logo y parte izquierda */
 .left {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .logo {
@@ -34,31 +34,82 @@ header {
   margin-right: 20px;
 }
 
-/* Logo imagen */
 .logo img {
   height: 60px;
   margin-right: 10px;
 }
 
-/* Estilo para el link de "Publicar" */
-.link-publicar {
-  font-size: 1rem;
-  color: #FB5012; /* Naranja para resaltar el link */
+/* Estilo para la "Lista de Emprendimientos" */
+.desktop-link {
+  font-size: 1.1rem;
+  color: #FFFCF2; /* Color base */
   text-decoration: none;
+  padding: 10px;
+  margin-left: 20px; /* Espacio entre el logo y el enlace */
   cursor: pointer;
-  font-weight: bold;
+  transition: color 0.3s ease, background-color 0.3s ease; /* Cambiar la transición de color y fondo */
 }
 
-.link-publicar:hover {
-  text-decoration: underline;
-  color: #FFFCF2; /* Blanco cremoso en hover para resaltar */
+/* Efecto hover en el enlace */
+.desktop-link:hover {
+  color: #FB5012; /* Color del texto en hover (usando el color de fondo oscuro) */
+  border-radius: 4px;
 }
 
-/* Estilo para los botones de acción */
+/* Botón hamburguesa */
+.menu-btn {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #FFFCF2;
+  cursor: pointer;
+}
+
+/* Menú móvil */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #22223B;
+  padding: 10px;
+  border-radius: 4px;
+  position: absolute;
+  top: 60px; /* Ajusta para que quede debajo del header */
+  right: 0; /* Alineado al margen derecho */
+  z-index: 1000; /* Asegura que esté encima de otros elementos */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega sombra para visibilidad */
+  width: auto; /* Ancho ajustado al contenido */
+  min-width: 200px; /* Mínimo ancho para el menú */
+}
+
+/* Lista de opciones en el menú */
+.mobile-menu ul {
+  list-style-type: none; /* Elimina los puntos de la lista */
+  margin: 0;
+  padding: 0;
+}
+
+/* Elementos de la lista (opciones) */
+.mobile-menu li {
+  padding: 12px 0;
+  font-size: 1.1rem;
+  color: white;
+  cursor: pointer;
+  text-align: right; /* Alinea las opciones a la derecha */
+  border-bottom: 1px solid #666A83; /* Línea separadora */
+}
+
+/* Efecto hover sobre las opciones */
+.mobile-menu li:hover {
+  background-color: #FB5012; /* Resaltado con color naranja */
+}
+
+/* Estilos para los botones de escritorio (revertidos a la versión original) */
 .actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Alinea botones centrados en pantallas pequeñas */
+  justify-content: center; /* Alinea botones centrados en pantallas grandes */
   gap: 10px;
 }
 
@@ -78,26 +129,72 @@ header {
   background-color: #666A83; /* Gris claro en hover */
 }
 
-/* Ajustes adicionales para mejorar la accesibilidad */
-button:focus, .link-publicar:focus {
-  outline: 2px solid #FB5012; /* Resaltado de foco con el color naranja */
-}
-
-.emprendimientos-button {
-  background-color: #12a9fb; /* Naranja para resaltar el botón */
-}
-
-/* Responsividad para dispositivos pequeños */
+/* Responsividad */
 @media (max-width: 768px) {
+  /* Configuración para que el menú hamburguesa esté a la derecha */
   header {
-    flex-direction: column;
+    display: flex;
+    justify-content: space-between; /* Mantener la separación entre logo y menú */
     align-items: center;
   }
 
   .name-emprendeco {
     font-size: 1.2rem;
     margin-bottom: 0;
-    line-height: 50px; /* Alineamos el título con el logo */
+    line-height: 50px;
+    order: 1; /* Asegura que el nombre esté a la izquierda */
+  }
+
+  .logo {
+    order: 0; /* Asegura que el logo se quede a la izquierda */
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .menu-btn {
+    display: block; /* Botón hamburguesa visible */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #FFFCF2;
+    cursor: pointer;
+    position: absolute;
+    right: 5%; /* Botón alineado a la derecha */
+  }
+
+  .actions {
+    display: none; /* Ocultar botones normales en dispositivos móviles */
+  }
+
+  .mobile-menu li {
+    padding: 15px; /* Añadir algo más de espacio */
+    font-size: 1.2rem; /* Aumentar el tamaño de fuente */
+  }
+
+  .mobile-menu li:hover {
+    background-color: #FF6A3D; /* Color más claro en hover */
+  }
+
+  /* Ocultar "Lista de Emprendimientos" en pantallas móviles */
+  .desktop-link {
+    display: none; /* Ocultar en dispositivos móviles */
+  }
+}
+
+/* Responsividad para dispositivos pequeños (pantallas <= 768px) */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between; /* Ajusta el header para mostrar todo en una línea */
+    align-items: center;
+  }
+
+  .name-emprendeco {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    line-height: 50px;
   }
 
   .logo img {
@@ -105,14 +202,17 @@ button:focus, .link-publicar:focus {
   }
 
   .actions {
-    flex-direction: row; /* Los botones en fila en dispositivos pequeños */
-    justify-content: center;
-    width: 100%; /* Asegura que los botones ocupen todo el ancho disponible */
+    display: none; /* Ocultar botones normales en dispositivos móviles */
   }
 
-  .actions button {
-    font-size: 0.9rem;
-    padding: 6px 10px;
+  /* Asegura que el logo y nombre estén en la izquierda */
+  .logo, .name-emprendeco {
+    order: 0;
+  }
+
+  .menu-btn {
+    position: absolute;
+    right: 5%;
   }
 }
 
@@ -122,15 +222,15 @@ button:focus, .link-publicar:focus {
   }
 
   .actions {
-    flex-direction: row; /* Botones en fila */
-    width: 100%; /* Alineación completa */
-    gap: 10px; /* Espaciado entre los botones */
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
   }
 
   .actions button {
     font-size: 0.9rem;
     padding: 6px 10px;
-    width: auto; /* Los botones no ocupan todo el ancho */
+    width: auto;
   }
 
   .logo img {
@@ -138,8 +238,8 @@ button:focus, .link-publicar:focus {
   }
 
   .name-emprendeco {
-    font-size: 1.1rem; /* Ajustamos el tamaño del texto para pantallas más pequeñas */
-    line-height: 40px; /* Alineación perfecta con el logo */
-    margin-bottom: 0; /* Eliminamos margen inferior */
+    font-size: 1.1rem;
+    line-height: 40px;
+    margin-bottom: 0;
   }
 }

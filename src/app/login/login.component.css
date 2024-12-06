@@ -30,6 +30,7 @@ label {
   font-size: 14px;
   margin-bottom: 5px;
   color: #22223B; /* Gris oscuro */
+  font-weight: bold
 }
 
 /* Estilo de los inputs */

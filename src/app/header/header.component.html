@@ -3,11 +3,29 @@
     <div class="logo" routerLink="">
       <img src="logo.png" alt="Logo de EmpredeCo" />
       <span class="name-emprendeco">EmprendeCo</span>
+      <div class="desktop-menu">
+        <a routerLink="/emprendimientos" class="desktop-link">Lista de Emprendimientos</a>
+      </div>
     </div>
-
   </div>
+
+  <!-- Menú hamburguesa en dispositivos móviles -->
+  <button class="menu-btn" (click)="toggleMenu($event)">&#9776;</button>
+
+  <div class="mobile-menu" *ngIf="menuOpen">
+    <ul>
+      <li routerLink="/" (click)="closeMenu()">Emprendimientos</li> <!-- Nueva opción -->
+      <li routerLink="/registro" (click)="closeMenu()">Crear Cuenta</li>
+      <li routerLink="/login" (click)="closeMenu()">Iniciar Sesión</li>
+    </ul>
+  </div>
+
   <div class="actions">
     <button routerLink="/registro">Crear Cuenta</button>
     <button routerLink="/login">Iniciar Sesión</button>
+
   </div>
+
+  <!-- Opción "Lista de Emprendimientos" solo para escritorio -->
+
 </header>
