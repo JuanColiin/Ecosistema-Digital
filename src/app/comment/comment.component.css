@@ -48,7 +48,7 @@ button {
   transition: background-color 0.3s ease;
 }
 
-/* Cambio de color de los botones al pasar el mouse */
+
 button:hover {
   background-color: #e94f0a;
 }
@@ -85,11 +85,11 @@ button.cancel:hover {
   border: 1px solid #ccc;
   border-radius: 8px;
   resize: none;
-  background-color: #FFFCF2; /* Mantiene el color cálido */
+  background-color: #FFFCF2;
   color: #333;
 }
 
-/* Cambios de estilo del área de texto al enfocar */
+
 .new-comment-form textarea:focus {
   outline: none;
   border-color: #FB5012;
@@ -194,7 +194,7 @@ button.cancel:hover {
   }
 
   .comment-title {
-    font-size: 14px; /* Ajuste de tamaño de fuente en móviles */
-    margin-top: 5px; /* Menor espacio en pantallas móviles */
+    font-size: 14px;
+    margin-top: 5px;
   }
 }
